@@ -1,6 +1,8 @@
 import React from 'react';
 import hoistStatics from 'hoist-non-react-statics';
 
+const cachedScripts = [];
+
 const scriptLoader = (...scriptSrcs) => (WrappedComponent) => {
   class ScriptLoader extends React.Component {
     constructor(props, context) {
@@ -24,7 +26,9 @@ const scriptLoader = (...scriptSrcs) => (WrappedComponent) => {
     }
 
     loadScripts = async (srcs) => {
-      const promises = srcs.map(src => this.loadScript(src));
+      const promises = srcs
+        .filter(src => !cachedScripts.includes(src))
+        .map(src => this.loadScript(src));
 
       let success = true;
       try {
@@ -44,6 +48,8 @@ const scriptLoader = (...scriptSrcs) => (WrappedComponent) => {
     };
 
     loadScript = (src) => {
+      cachedScripts.push(src);
+
       const script = document.createElement('script');
       script.src = src;
       script.async = true;
@@ -52,8 +58,9 @@ const scriptLoader = (...scriptSrcs) => (WrappedComponent) => {
         script.addEventListener('load', () => resolve(src));
         script.addEventListener('error', e => reject(e));
       }).catch((e) => {
-        const parentNode = script.parentNode;
-        if (parentNode) parentNode.removeChild(script);
+        const index = cachedScripts.indexOf(src);
+        if (index >= 0) cachedScripts.splice(index, 1);
+        script.remove();
         throw e;
       });
 
