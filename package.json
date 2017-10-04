@@ -1,6 +1,45 @@
 {
-  "name": "ScriptLoader",
-  "version": "0.0.0",
-  "private": true,
-  "main": "./ScriptLoader.js"
+  "name": "react-script-loader-hoc",
+  "description":
+    "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
+  "version": "0.1.0",
+  "keywords": ["react", "reactjs", "react-component", "script-loader"],
+  "author": {
+    "name": "Nick Rogers"
+  },
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sesilio/react-script-loader-hoc"
+  },
+  "peerDependencies": {
+    "react": ">=15"
+  },
+  "dependencies": {
+    "hoist-non-react-statics": "^2.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-import-resolver-node": "^0.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "lint": "eslint ./src",
+    "clean": "rimraf ./dist",
+    "build": "yarn clean && babel ./src -d dist",
+    "prepublish": "yarn lint && yarn build"
+  }
 }
