@@ -2,16 +2,24 @@
   "name": "react-script-loader-hoc",
   "description":
     "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
-  "version": "0.3.0",
-  "keywords": ["react", "reactjs", "react-component", "script-loader"],
+  "version": "0.3.1",
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component",
+    "script-loader",
+    "async",
+    "higher-order-component"
+  ],
   "author": {
     "name": "Nick Rogers"
   },
+  "contributors": [{ "name": "Dom Lyons" }],
   "main": "./dist/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sesilio/react-script-loader-hoc"
+    "url": "https://github.com/sesilio/react-script-loader-hoc"
   },
   "peerDependencies": {
     "react": ">=15"
