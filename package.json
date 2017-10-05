@@ -1,9 +1,13 @@
 {
   "name": "react-script-loader-hoc",
-  "description":
-    "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
+  "description": "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
   "version": "0.1.0",
-  "keywords": ["react", "reactjs", "react-component", "script-loader"],
+  "keywords": [
+    "react",
+    "reactjs",
+    "react-component",
+    "script-loader"
+  ],
   "author": {
     "name": "Nick Rogers"
   },
@@ -23,10 +27,8 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
-    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^15.1.0",

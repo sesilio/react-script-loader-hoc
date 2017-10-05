@@ -4,12 +4,14 @@
       "env",
       {
         "targets": {
-          "node": "current"
-        }
+          "browsers": [">1%", "last 4 versions", "Firefox ESR", "not ie < 11"]
+        },
+        "useBuiltins": "usage"
       }
     ],
     "stage-2",
     "react"
   ],
+
   "ignore": ["/node_modules/"]
 }
