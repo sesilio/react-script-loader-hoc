@@ -1,13 +1,9 @@
 {
   "name": "react-script-loader-hoc",
-  "description": "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
-  "version": "0.1.0",
-  "keywords": [
-    "react",
-    "reactjs",
-    "react-component",
-    "script-loader"
-  ],
+  "description":
+    "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
+  "version": "0.3.0",
+  "keywords": ["react", "reactjs", "react-component", "script-loader"],
   "author": {
     "name": "Nick Rogers"
   },
