@@ -1,6 +1,7 @@
 {
   "name": "react-script-loader-hoc",
-  "description": "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
+  "description":
+    "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
   "version": "1.0.0",
   "keywords": [
     "react",
@@ -8,6 +9,10 @@
     "react-component",
     "script-loader",
     "async",
+    "stripe",
+    "loader",
+    "asynchronous",
+    "stripe-react-elements",
     "higher-order-component"
   ],
   "author": {
