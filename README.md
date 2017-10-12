@@ -3,15 +3,15 @@ A higher-order React component that assists in the asynchronous loading of third
 
 
 ### Example usage with Stripe React Elements
-Barebones example of asynchronously loading the Stripe.js library. The `Loader` will be rendered until the Stripe.js library loads asynchronously, at which point the `Loader` will be replaced by the `StripeProvider`.
+Simple example of asynchronously loading the Stripe.js library. The `LoadIcon` component will be rendered until the Stripe.js library loads asynchronously, at which point the `LoadIcon` will be replaced by the `StripeProvider`.
 ```jsx
   import React from 'react';
   import ScriptLoader from 'react-script-loader-hoc';
   import { StripeProvider, Elements } from 'react-stripe-elements';
-  import { Loader, CheckoutForm } from '../components';
+  import { LoadIcon, CheckoutForm } from '../components';
 
   const StripePayment = ({ scriptsLoadedSuccessfully }) => {
-    if (!scriptsLoadedSuccessfully) return <Loader />;
+    if (!scriptsLoadedSuccessfully) return <LoadIcon />;
 
     return (
       <StripeProvider apiKey="pk_test_12345">
@@ -26,8 +26,8 @@ Barebones example of asynchronously loading the Stripe.js library. The `Loader` 
 ```
 
 ### API
-`ScriptLoader` takes a `n` arguments, each being a string URL of a javascript resource to load. The component will pass in two boolean-valued props:
+`ScriptLoader` takes `n` string arguments, each of which should be a URL of a javascript resource to load. The higher-order `ScriptLoader` component will pass two boolean-valued props to the wrapped component:
  - `scriptsLoaded`
  - `scriptsLoadedSuccessfully`
 
-Both props will be `false` until all scripts load at which point `scriptsLoaded` will be `true` and `scriptsLoadedSuccessfully` will refect whether or not any errors occurred (e.g. false if a 404 occurred).
+`scriptsLoaded` will be `false` until either all scripts load successfully or one or more of the scripts fail to load (eg. if a 404 occurs), at which point it will be `true`. `scriptsLoadedSuccessfully` will be `true` if all scripts load successfully or `false` if either an error occurs or if some scripts are still loading. `scriptsLoadedSuccessfully` will always be `false` while `scriptsLoaded` is false.
