@@ -1,6 +1,16 @@
 # react-script-loader-hoc
+[![npm version](https://img.shields.io/badge/npm-v1.0.0-brightgreen.svg)](https://www.npmjs.com/package/react-script-loader-hoc) [![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sesilio/react-script-loader-hoc/blob/master/LICENSE)
+
 A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)
 
+### Installation
+```
+yarn add react-script-loader-hoc
+```
+or
+```
+npm install --save react-script-loader-hoc
+```
 
 ### Example usage with Stripe React Elements
 Simple example of asynchronously loading the Stripe.js library. The `LoadIcon` component will be rendered until the Stripe.js library loads asynchronously, at which point the `LoadIcon` will be replaced by the `StripeProvider`.
