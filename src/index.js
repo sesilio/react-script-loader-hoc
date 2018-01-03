@@ -1,5 +1,6 @@
 import React from 'react';
 import hoistStatics from 'hoist-non-react-statics';
+import 'regenerator-runtime/runtime';
 
 const cachedScripts = [];
 
