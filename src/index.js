@@ -4,7 +4,7 @@ import 'regenerator-runtime/runtime';
 
 const cachedScripts = [];
 
-const scriptLoader = (...scriptSrcs) => (WrappedComponent) => {
+const scriptLoader = (...scriptSrcs) => WrappedComponent => {
   class ScriptLoader extends React.Component {
     constructor(props, context) {
       super(props, context);
@@ -26,7 +26,7 @@ const scriptLoader = (...scriptSrcs) => (WrappedComponent) => {
       this._isMounted = false;
     }
 
-    loadScripts = async (srcs) => {
+    loadScripts = async srcs => {
       const promises = srcs
         .filter(src => !cachedScripts.includes(src))
         .map(src => this.loadScript(src));
@@ -48,7 +48,7 @@ const scriptLoader = (...scriptSrcs) => (WrappedComponent) => {
       });
     };
 
-    loadScript = (src) => {
+    loadScript = src => {
       cachedScripts.push(src);
 
       const script = document.createElement('script');
@@ -58,7 +58,7 @@ const scriptLoader = (...scriptSrcs) => (WrappedComponent) => {
       const promise = new Promise((resolve, reject) => {
         script.addEventListener('load', () => resolve(src));
         script.addEventListener('error', e => reject(e));
-      }).catch((e) => {
+      }).catch(e => {
         const index = cachedScripts.indexOf(src);
         if (index >= 0) cachedScripts.splice(index, 1);
         script.remove();
