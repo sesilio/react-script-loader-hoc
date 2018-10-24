@@ -5,9 +5,10 @@ module.exports = {
   },
 
   extends: ['airbnb', 'eslint-config-prettier'],
-  plugins: ['import'],
+  plugins: ['import', 'jest'],
   env: {
     browser: true,
+    'jest/globals': true,
   },
 
   rules: {
@@ -24,13 +25,5 @@ module.exports = {
     'no-confusing-arrow': 'off',
     'no-underscore-dangle': 'off',
     'no-mixed-operators': 'off',
-  },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx'],
-        paths: ['node_modules'],
-      },
-    },
   },
 };
