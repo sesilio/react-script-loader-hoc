@@ -11,6 +11,9 @@
 // http://eslint.org/docs/user-guide/configuring
 module.exports = {
   parser: 'babel-eslint',
+  parserOptions: {
+    ecmaVersion: '2018',
+  },
 
   extends: ['airbnb'],
 
