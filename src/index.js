@@ -1,21 +1,16 @@
 import React from 'react';
 import hoistStatics from 'hoist-non-react-statics';
-import 'regenerator-runtime/runtime';
 
 const cachedScripts = [];
 
 const scriptLoader = (...scriptSrcs) => WrappedComponent => {
   class ScriptLoader extends React.Component {
-    constructor(props, context) {
-      super(props, context);
+    state = {
+      scriptsLoaded: false,
+      scriptsLoadedSuccessfully: false,
+    };
 
-      this.state = {
-        scriptsLoaded: false,
-        scriptsLoadedSuccessfully: false,
-      };
-
-      this._isMounted = false;
-    }
+    _isMounted = false;
 
     componentDidMount() {
       this._isMounted = true;
@@ -26,26 +21,29 @@ const scriptLoader = (...scriptSrcs) => WrappedComponent => {
       this._isMounted = false;
     }
 
-    loadScripts = async srcs => {
+    loadScripts = srcs => {
       const promises = srcs
         .filter(src => !cachedScripts.includes(src))
         .map(src => this.loadScript(src));
 
       let success = true;
-      try {
-        await Promise.all(promises);
-      } catch (err) {
-        success = false;
-      }
+      Promise.all(promises)
+        .then(() => {
+          success = true;
+        })
+        .catch(() => {
+          success = false;
+        })
+        .then(() => {
+          if (!this._isMounted) {
+            return;
+          }
 
-      if (!this._isMounted) {
-        return;
-      }
-
-      this.setState({
-        scriptsLoaded: true,
-        scriptsLoadedSuccessfully: success,
-      });
+          this.setState({
+            scriptsLoaded: true,
+            scriptsLoadedSuccessfully: success,
+          });
+        });
     };
 
     loadScript = src => {
@@ -62,6 +60,7 @@ const scriptLoader = (...scriptSrcs) => WrappedComponent => {
         const index = cachedScripts.indexOf(src);
         if (index >= 0) cachedScripts.splice(index, 1);
         script.remove();
+
         throw e;
       });
 
