@@ -53,12 +53,16 @@
     "eslint-plugin-react": "^7.11.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
+    "jest-dom": "^2.1.0",
+    "jest-watch-typeahead": "^0.2.0",
     "lint-staged": "^7.3.0",
     "prettier": "^1.14.3",
+    "react-dom": "^16.6.0",
+    "react-testing-library": "^5.2.1",
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "test:watch": "jest --watch",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "lint": "eslint src",
