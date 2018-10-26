@@ -28,9 +28,6 @@ const scriptLoader = (...scriptSrcs) => WrappedComponent => {
 
       let success = true;
       Promise.all(promises)
-        .then(() => {
-          success = true;
-        })
         .catch(() => {
           success = false;
         })
