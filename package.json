@@ -22,7 +22,8 @@
       "name": "Dom Lyons"
     }
   ],
-  "main": "./dist/index.js",
+  "main": "dist/scriptLoader.cjs.js",
+  "module": "dist/scriptLoader.esm.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -58,7 +59,12 @@
     "prettier": "^1.14.3",
     "react-dom": "^16.6.0",
     "react-testing-library": "^5.2.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "rollup": "^0.66.6",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-replace": "^2.1.0"
   },
   "scripts": {
     "test": "jest",
@@ -67,9 +73,10 @@
     "lint": "eslint src",
     "prettier": "prettier \"**/*.+(js|jsx|json)\"",
     "format": "yarn prettier --write",
-    "validate": "yarn lint && yarn prettier --list-different",
+    "validate": "yarn lint && yarn prettier --list-different && yarn test",
     "precommit": "lint-staged",
     "clean": "rimraf ./dist",
-    "build": "yarn clean && babel ./src -d dist"
+    "build": "yarn clean && rollup -c ./rollup.config.js",
+    "prepublish": "yarn validate && yarn build"
   }
 }
