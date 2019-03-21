@@ -1,7 +1,7 @@
 {
   "name": "react-script-loader-hoc",
   "description": "A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "keywords": [
     "react",
     "reactjs",
@@ -37,7 +37,6 @@
     "react": "^16.8.4"
   },
   "devDependencies": {
-    "babel-polyfill": "^6.26.0",
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
@@ -46,6 +45,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
+    "babel-polyfill": "^6.26.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "^3.1.0",
