@@ -1,5 +1,5 @@
 # react-script-loader-hoc
-[![npm version](https://img.shields.io/badge/npm-v1.2.1-brightgreen.svg)](https://www.npmjs.com/package/react-script-loader-hoc) [![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sesilio/react-script-loader-hoc/blob/master/LICENSE)
+[![npm version](https://img.shields.io/badge/npm-v1.2.2-brightgreen.svg)](https://www.npmjs.com/package/react-script-loader-hoc) [![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sesilio/react-script-loader-hoc/blob/master/LICENSE)
 
 A higher-order React component that assists in the asynchronous loading of third party JS libraries (eg. Stripe.js)
 
